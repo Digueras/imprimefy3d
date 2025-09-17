@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabacaria 3D Premium</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome (social icons) -->
+  <script src="https://kit.fontawesome.com/a7c2e328e0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="container flex justify-between items-center py-8">
+      <a href="#home" class="logo h3">Tabacaria3D</a>
+      <nav>
+        <ul class="nav flex gap-16">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center">
+      <div class="hero__content container flex flex-col items-center gap-16 text-center">
+        <h1 class="h1">Criações em Impressão 3D para Tabacaria</h1>
+        <button class="btn btn--primary" data-scroll-target="#produtos">Ver Catálogo</button>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="produtos container py-16">
+      <h2 class="h2 mb-16">Catálogo</h2>
+
+      <!-- Filtro -->
+      <div class="filter-bar flex flex-col gap-16 mb-16">
+        <div class="flex gap-16">
+          <label for="categoria" class="sr-only">Categoria</label>
+          <select id="categoria" class="form-control" aria-label="Filtrar por categoria"></select>
+
+          <label for="pesquisa" class="sr-only">Buscar produtos</label>
+          <input type="text" id="pesquisa" class="form-control" placeholder="Buscar..." aria-label="Buscar por palavra-chave" />
+        </div>
+      </div>
+
+      <!-- Grid de produtos -->
+      <div id="produtos-grid" class="grid gap-16"></div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="contato container py-16">
+      <h2 class="h2 mb-16">Contato</h2>
+      <form id="contato-form" novalidate>
+        <div class="form-group">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" id="nome" class="form-control" required aria-required="true" />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" required aria-required="true" />
+        </div>
+        <div class="form-group">
+          <label for="mensagem" class="form-label">Mensagem</label>
+          <textarea id="mensagem" rows="5" class="form-control" required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Enviar Mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-16">
+    <div class="container flex justify-between items-center">
+      <p class="m-0">&copy; <span id="ano"></span> Tabacaria 3D Premium</p>
+      <div class="social flex gap-8">
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Produto -->
+  <div id="produto-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__content card flex flex-col gap-16" tabindex="-1">
+      <button class="modal__close btn btn--secondary btn--sm align-self-end" aria-label="Fechar" data-close-modal>&times;</button>
+      <h2 id="modal-title"></h2>
+      <div id="modal-gallery" class="modal__gallery flex gap-8"></div>
+      <p id="modal-description"></p>
+      <table id="modal-specs" class="specs-table"></table>
+      <div id="modal-colors" class="flex gap-4"></div>
+      <p id="modal-price" class="h3"></p>
+      <button id="add-to-cart" class="btn btn--primary">Adicionar ao carrinho</button>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="app.js" defer></script>
+</body>
+</html>
